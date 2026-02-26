@@ -13,17 +13,39 @@ const Hero = () => {
           Aline <span style={styles.ampersand}>&</span> Wagner
         </h1>
         <div style={styles.dateBadge} className="animate-slide-up delay-300">
-          <Calendar size={20} style={{marginRight: '8px', color: 'var(--color-primary)'}} />
-          <span>28 de Março de 2026</span>
+          <span>
+            <Calendar size={20} style={{ marginRight: '8px', color: 'var(--color-primary)' }} />
+            <span>28 de Março de 2026</span>
+          </span>
+          <span>
+            <Clock size={20} style={{ marginRight: '8px', color: 'var(--color-primary)' }} />
+            <span>10:30h</span>
+          </span>
         </div>
-        <div style={styles.locationContainer} className="animate-slide-up delay-400">
-           <MapPin size={18} style={{marginRight: '6px', color: 'white'}} />
-           <span>Angra Restaurante, 11:30h</span>
-        </div>
-        <div style={styles.scrollDown} className="animate-fade-in delay-500">
-           <span style={styles.scrollText}>Role para descobrir</span>
-           <div style={styles.scrollLine}></div>
-        </div>
+        <a
+          href="https://share.google/05bKn4Z7KDdQrm1eF"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ ...styles.locationContainer, textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,0.4)', textUnderlineOffset: '4px' }}
+          className="animate-slide-up delay-400"
+        >
+          <MapPin size={18} style={{ marginRight: '6px', color: 'white' }} />
+          <a
+            href="https://share.google/05bKn4Z7KDdQrm1eF"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'white', textDecoration: 'none', transition: 'opacity 0.3s ease' }}
+            onMouseOver={(e) => e.target.style.opacity = '0.8'}
+            onMouseOut={(e) => e.target.style.opacity = '1'}
+          >
+            R. Ipanema, 16 - Centro, Cel. Fabriciano - MG, 35170-032
+          </a>
+        </a>
+      </div>
+
+      <div style={styles.scrollDown} className="animate-fade-in delay-500">
+        <span style={styles.scrollText}>Role para descobrir</span>
+        <div style={styles.scrollLine}></div>
       </div>
     </section>
   );
@@ -37,10 +59,10 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundImage: 'url("https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")',
+    /* Adding a query param to the URL to bust the browser cache and force the new image to load */
+    backgroundImage: 'url("/Aline&Wagner.png?v=3")',
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center 45%',
   },
   overlay: {
     position: 'absolute',
@@ -85,6 +107,7 @@ const styles = {
   },
   dateBadge: {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     backdropFilter: 'blur(10px)',
@@ -111,6 +134,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    zIndex: 3, /* Ensure it is above the overlay */
   },
   scrollText: {
     color: 'white',

@@ -31,14 +31,27 @@ const Details = () => {
                             <CalendarDays size={28} color="white" />
                         </div>
                         <h3 style={styles.cardTitle}>A Cerimônia</h3>
-                        <div style={styles.infoRow}>
-                            <Clock size={20} style={styles.infoIcon} />
-                            <span>Sábado, 28 de Março de 2026 às 11:30h</span>
+
+                        <div style={styles.infoContainer}>
+                            <div style={styles.infoRow}>
+                                <CalendarDays size={20} style={styles.infoIcon} />
+                                <span>Sábado, 28 de Março de 2026</span>
+                            </div>
+                            <div style={styles.infoRow}>
+                                <Clock size={20} style={styles.infoIcon} />
+                                <span>11:30h</span>
+                            </div>
+                            <a
+                                href="https://share.google/05bKn4Z7KDdQrm1eF"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ ...styles.infoRow, textDecoration: 'underline', textDecorationColor: 'var(--color-primary-light)', textUnderlineOffset: '4px', cursor: 'pointer', color: 'inherit' }}
+                            >
+                                <MapPin size={20} style={styles.infoIcon} />
+                                <span>Angra Restaurante</span>
+                            </a>
                         </div>
-                        <div style={styles.infoRow}>
-                            <MapPin size={20} style={styles.infoIcon} />
-                            <span>Angra Restaurante</span>
-                        </div>
+
                         <p style={styles.subtext}>
                             Sua presença será uma grande alegria em nosso novo capítulo.
                         </p>
@@ -124,17 +137,23 @@ const styles = {
         marginBottom: '25px',
         color: 'var(--color-secondary)',
     },
+    infoContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        margin: '0 auto',
+    },
     infoRow: {
         display: 'flex',
         alignItems: 'center',
         marginBottom: '15px',
         fontSize: '1.1rem',
-        width: '100%',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
     },
     infoIcon: {
         color: 'var(--color-primary)',
         marginRight: '12px',
+        flexShrink: 0,
     },
     subtext: {
         marginTop: '20px',
