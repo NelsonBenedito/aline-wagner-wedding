@@ -37,10 +37,6 @@ const Story = () => {
                         Isso nos ensina que Deus sempre está agindo, criando novos caminhos onde não
                         vemos saída. Deus é especialista em recomeços.
                     </p>
-
-                    <div style={styles.dateMet}>
-                        <span style={styles.dateIcon}>♡</span> Nos conhecemos no dia 05 de Setembro
-                    </div>
                 </div>
 
             </div>
