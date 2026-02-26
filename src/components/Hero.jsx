@@ -43,7 +43,7 @@ const Hero = () => {
           </span>
           <span>
             <Clock size={20} style={{ marginRight: '8px', color: 'var(--color-primary)' }} />
-            <span>10:30h</span>
+            <span>11:30h</span>
           </span>
         </div>
         <a
