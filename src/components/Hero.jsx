@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, Clock } from 'lucide-react';
 
 const Hero = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/Aline&Wagner.png?v=3";
+    img.onload = () => {
+      setImageLoaded(true);
+    };
+  }, []);
+
   return (
-    <section className="hero" style={styles.heroSection}>
+    <section className="hero" style={{ ...styles.heroSection, backgroundColor: '#1a1a1a' }}>
+      {/* Smooth Background Image Layer */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url("/Aline&Wagner.png?v=3")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 45%',
+        opacity: imageLoaded ? 1 : 0,
+        transition: 'opacity 2s ease-in-out',
+      }}></div>
+
       <div className="hero-overlay" style={styles.overlay}></div>
-      <div className="hero-content" style={styles.content}>
+      <div className="hero-content" style={{ ...styles.content, opacity: imageLoaded ? 1 : 0, transition: 'opacity 2s ease-in-out 0.5s' }}>
         <div style={styles.subtitle} className="animate-slide-up delay-100 font-sans">
           COM A BÊNÇÃO DE DEUS E DE NOSSAS FAMÍLIAS
         </div>
@@ -59,10 +83,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    /* Adding a query param to the URL to bust the browser cache and force the new image to load */
-    backgroundImage: 'url("/Aline&Wagner.png?v=3")',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center 45%',
+    overflow: 'hidden', /* Prevent scrollbars during animations */
   },
   overlay: {
     position: 'absolute',
