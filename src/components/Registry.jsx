@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Gift, CreditCard, Plane, QrCode, X } from 'lucide-react';
 
 const Registry = () => {
-    const [activeTab, setActiveTab] = useState('gifts'); // 'gifts' or 'pix'
+    const [activeTab, setActiveTab] = useState('pix'); // 'gifts' or 'pix'
     const [selectedCota, setSelectedCota] = useState(null);
     const [modalTab, setModalTab] = useState('pix'); // 'pix' or 'card'
     const [customAmount, setCustomAmount] = useState('');
